@@ -29,23 +29,36 @@ window.addEventListener("DOMContentLoaded", () => {
 
   const getData = async () => {
     const catalogue = document.querySelector(".catalogue");
+    const loader = document.querySelector(".loader");
     try {
       const res = await fetch(API_ENDPOINT);
       const data = await res.json();
-      console.log(data);
+      loader.style.display = "none";
+      var pics = [];
+      console.log(pics);
       data.forEach((product) => {
         const card = document.createElement("div");
+        const image_name = product.productImage.slice(30); // gets the name of the image
+        console.log(image_name);
+        const bg = document.createElement("div");
+        bg.setAttribute(
+          "style",
+          `background-image:url(../assets/lorem_img/${image_name}.jpg); background-size:cover;background-repeat:no-repeat;`
+        );
         card.className = "card";
-        const heading = document.createElement("h2");
+        const card_details = document.createElement("div");
+        card_details.className = "card_details";
+        const heading = document.createElement("h4");
         heading.textContent = product.productName;
+        const cost = document.createElement("h5");
+        cost.textContent = "₹" + product.productCost;
         const desc = document.createElement("p");
         desc.textContent = product.productSummary;
-        card.setAttribute(
-          "style",
-          `background-image:url(${product.productImage});`
-        );
-        card.appendChild(heading);
-        card.appendChild(desc);
+        card.appendChild(bg);
+        card_details.appendChild(heading);
+        card_details.appendChild(cost);
+        card_details.appendChild(desc);
+        card.appendChild(card_details);
         catalogue.appendChild(card);
       });
     } catch (err) {
