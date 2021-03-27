@@ -162,6 +162,15 @@ body {
   align-items: center;
 }
 
+.catalogue hr {
+  width: 100%;
+  margin: 40px;
+}
+.catalogue h1 {
+  width: 100%;
+  margin: 10px;
+  text-align: center;
+}
 .intro {
   width: 100vw;
   height: 180px;
