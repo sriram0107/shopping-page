@@ -70,8 +70,24 @@ window.addEventListener("DOMContentLoaded", () => {
     try {
       const res = await fetch(API_ENDPOINT);
       const data = await res.json();
+      // Sort products by category
+      data.sort((p1, p2) => {
+        return p1.productCategory.localeCompare(p2.productCategory);
+      });
       loader.style.display = "none"; // turn off loading icon
+      var current_category = data[0].productCategory;
+      const category_header = document.createElement("h1");
+      category_header.textContent = current_category;
+      catalogue.appendChild(category_header);
       data.forEach((product) => {
+        if (product.productCategory !== current_category) {
+          const line_break = document.createElement("hr");
+          catalogue.appendChild(line_break);
+          current_category = product.productCategory;
+          const next_header = document.createElement("h1");
+          next_header.textContent = current_category;
+          catalogue.appendChild(next_header);
+        }
         createCard(product, catalogue);
       });
     } catch (err) {
