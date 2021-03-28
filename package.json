@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "dist":"electron-builder"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,12 @@
   },
   "dependencies": {
     "nodemon": "^2.0.7"
+  },"build": {
+  "appId": "com.shopping.app",
+  "productName":"shopping dashboard",
+  "target":"NSIS",
+  "directories" : {
+    "output" : "application apk"
   }
+}
 }
