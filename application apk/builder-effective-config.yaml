@@ -1,0 +1,7 @@
+directories:
+  output: application apk
+  buildResources: build
+appId: com.shopping.app
+productName: shopping dashboard
+target: NSIS
+electronVersion: 12.0.1

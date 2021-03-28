@@ -6,22 +6,24 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "dist":"electron-builder"
+    "dist": "electron-builder"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^12.0.1"
+    "electron": "^12.0.1",
+    "electron-builder": "^22.10.5"
   },
   "dependencies": {
     "nodemon": "^2.0.7"
-  },"build": {
-  "appId": "com.shopping.app",
-  "productName":"shopping dashboard",
-  "target":"NSIS",
-  "directories" : {
-    "output" : "application apk"
+  },
+  "build": {
+    "appId": "com.shopping.app",
+    "productName": "shopping dashboard",
+    "target": "NSIS",
+    "directories": {
+      "output": "application apk"
+    }
   }
-}
 }
